@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Lesson29Fragment</string>
     <string name="action_settings">Settings</string>
+    <string name="orangeCat">Orange Cat</string>
+    <string name="barsikCat">Barsik Cat</string>
+    <string name="murzikCat">Murzik Cat</string>
+    <string name="simpleCat">Simple Cat</string>
+    <string name="descriptionCat">Cat\'s description</string>
+    <string name="clickButton">You clicked the button!</string>
+
+    <string-array name="cats">
+        <item>@string/simpleCat</item>
+        <item>@string/orangeCat</item>
+        <item>@string/barsikCat</item>
+        <item>@string/murzikCat</item>
+    </string-array>
 </resources>

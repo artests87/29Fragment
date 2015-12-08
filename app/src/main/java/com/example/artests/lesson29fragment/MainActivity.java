@@ -1,11 +1,12 @@
 package com.example.artests.lesson29fragment;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements Fragment1.OnSelectedButtonListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +34,15 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onButtonSelected(int buttonIndex) {
+        FragmentManager fragmentManager=getFragmentManager();
+
+        Fragment2 fragment2=(Fragment2)fragmentManager.findFragmentById(R.id.fragment2);
+        if (fragment2!=null){
+            fragment2.setDescription(buttonIndex);
+        }
     }
 }
