@@ -28,8 +28,8 @@ public class Fragment2 extends Fragment {
     }
 
     public void setDescription(int buttonIndex){
-        String catDescroption= mCatDescriptionArray[buttonIndex];
-        mInfoTextView.setText(catDescroption);
+        String catDescription= mCatDescriptionArray[buttonIndex];
+        mInfoTextView.setText(catDescription);
         switch (buttonIndex){
             case 1:
                 mCatImageView.setImageResource(R.drawable.cat_yellow);

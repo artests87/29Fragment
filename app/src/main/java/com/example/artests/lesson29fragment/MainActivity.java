@@ -1,6 +1,7 @@
 package com.example.artests.lesson29fragment;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -41,7 +42,12 @@ public class MainActivity extends ActionBarActivity implements Fragment1.OnSelec
         FragmentManager fragmentManager=getFragmentManager();
 
         Fragment2 fragment2=(Fragment2)fragmentManager.findFragmentById(R.id.fragment2);
-        if (fragment2!=null){
+        if (fragment2==null || !fragment2.isVisible()){
+            Intent intent = new Intent(this,SecondActivity.class);
+            intent.putExtra("buttonIndex",buttonIndex);
+            startActivity(intent);
+        }
+        else {
             fragment2.setDescription(buttonIndex);
         }
     }
