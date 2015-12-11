@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -12,13 +12,13 @@
     tools:context="com.example.artests.lesson29fragment.MainActivity"
     >
 
-    <fragment
+    <!--<fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:name="com.example.artests.lesson29fragment.Fragment1"
         android:id="@+id/fragment1"
         android:layout_gravity="center_horizontal"
-        tools:layout="@layout/fragment1" />
+        tools:layout="@layout/fragment1" />-->
 
 
 </LinearLayout>
