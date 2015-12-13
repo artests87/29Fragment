@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity implements Fragment1.OnSelectedButtonListener {
     private boolean mIsDynamic;
     private FragmentManager mFragmentManager;
+    private Fragment1 fragment1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public class MainActivity extends ActionBarActivity implements Fragment1.OnSelec
     }
     private void loadFragment(){
         FragmentTransaction fragmentTransaction= mFragmentManager.beginTransaction();
-        Fragment1 fragment1=new Fragment1();
+        fragment1=new Fragment1();
         fragmentTransaction.add(R.id.container,fragment1,"fragment1");
         fragmentTransaction.commit();
     }
@@ -57,13 +59,12 @@ public class MainActivity extends ActionBarActivity implements Fragment1.OnSelec
             FragmentTransaction fragmentTransaction= mFragmentManager.beginTransaction();
             fragment2=new Fragment2();
             Bundle args=new Bundle();
-            args.putInt(Fragment2.BUTTON_INDEX,buttonIndex);
+            args.putInt(Fragment2.BUTTON_INDEX, buttonIndex);
             fragment2.setArguments(args);
             fragmentTransaction.replace(R.id.container, fragment2, "fragment2");
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
             fragmentTransaction.commit();
-            mIsDynamic=!fragment2.isInLayout();
         }
         else {
             fragment2=(Fragment2)mFragmentManager.findFragmentById(R.id.fragment2);
@@ -73,15 +74,23 @@ public class MainActivity extends ActionBarActivity implements Fragment1.OnSelec
 
     @Override
     public void onBackPressed() {
-        /*Fragment1 fragment1;
-        if(!mIsDynamic){
+        //Fragment1 fragment1=(Fragment1)mFragmentManager.findFragmentById(R.id.fragment1);
+        boolean bool=true;
+        if (findViewById(R.id.container)!=null) {
+            bool = !fragment1.isRemoving();
+        }
+        Toast.makeText(this,(bool)+"",Toast.LENGTH_SHORT).show();
+        if(mIsDynamic && !bool){
             FragmentTransaction fragmentTransaction= mFragmentManager.beginTransaction();
-            fragment1=new Fragment1();
             fragmentTransaction.replace(R.id.container, fragment1, "fragment1");
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
+
             fragmentTransaction.commit();
-        }*/
-        super.onBackPressed();
+
+        }
+        else{
+            super.onBackPressed();
+        }
     }
 }
