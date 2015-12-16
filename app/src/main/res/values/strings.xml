@@ -15,4 +15,8 @@
         <item>@string/murzikCat</item>
     </string-array>
     <string name="title_activity_second">SecondActivity</string>
+    <string name="toCountCats">Считаем котов</string>
+    <string name="summ">Всего:</string>
+    <string name="countCatAdd1">I counted</string>
+    <string name="countCatAdd2">котов!</string>
 </resources>

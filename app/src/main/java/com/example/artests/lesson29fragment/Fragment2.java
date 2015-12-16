@@ -30,7 +30,7 @@ public class Fragment2 extends Fragment {
         mCatDescriptionArray =getResources().getStringArray(R.array.cats);
         Bundle args=getArguments();
         int buttonIndex=args!=null?args.getInt(BUTTON_INDEX,BUTTON_INDEX_DEFAULT):BUTTON_INDEX_DEFAULT;
-        if(buttonIndex!=BUTTON_INDEX_DEFAULT){
+        if(buttonIndex!=BUTTON_INDEX_DEFAULT && buttonIndex<4){
             setDescription(buttonIndex);
         }
         return rootView;
@@ -51,4 +51,5 @@ public class Fragment2 extends Fragment {
                 break;
         }
     }
+
 }

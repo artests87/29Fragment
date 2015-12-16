@@ -27,4 +27,11 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         tools:layout="@layout/fragment2" />
+    <fragment
+        android:name="com.example.artests.lesson29fragment.WithTextViewFragment"
+        android:id="@+id/fragment3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/fragment_with_textview" />
 </LinearLayout>
